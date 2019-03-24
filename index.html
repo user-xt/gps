@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>css像素与DPR</title>
+</head>
+<style>
+.box{
+	width: 400px;
+	height: 400px;
+	background-color: pink;
+}
+
+</style>
+<body>
+	<h1>sldfjasldfjkalsdjf</h1>
+	<div class="box">
+
+	</div>
+
+	<script>
+
+		var box = document.querySelector(".box");
+
+		
+		// CSS像素对应着以后要提到的理想视口的宽高
+		var screenW = screen.width;
+		var screenH = screen.height;
+
+		console.log ("理想视口的宽 = " + screenW );
+		console.log ("理想视口的高 = " + screenH );
+
+		// 对于设备像素比DPR也有对应的javascript属性
+		var dprVal = window.devicePixelRatio;
+
+		console.log ("DPR的值为 = " + dprVal );
+
+
+		if(navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(showPosition);
+		}else{
+			throw  'errr';
+		}
+		
+		function showPosition(info){
+			console.log(info);
+			box.innerHTML = info;
+			
+		}
+
+	</script>
+</body>
+</html>
